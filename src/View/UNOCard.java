@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import Interfaces.CardInterface;
-import Interfaces.UNOConstants;
+import Interfaces.UNOConstants_Original;
 
 @SuppressWarnings("serial")
-public abstract class UNOCard extends JPanel implements CardInterface, UNOConstants {
+public abstract class UNOCard extends JPanel implements CardInterface, UNOConstants_Original {
 	
 	private Color cardColor = null;
 	private String value = null;
