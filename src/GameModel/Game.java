@@ -1,6 +1,6 @@
 package GameModel;
 /*
-Code created by Josh Braza 
+Code created by Josh Braza
 */
 
 import java.util.Stack;
@@ -11,38 +11,43 @@ import CardModel.*;
 import Interfaces.GameConstants;
 import View.UNOCard;
 
+//import static Interfaces.UNOConstants.WILD;
+
 public class Game implements GameConstants {
 
 	private Player[] players;
 	private boolean isOver;
 	private int GAMEMODE;
-	
+
 	private PC pc;
 	private Dealer dealer;
 	private Stack<UNOCard> cardStack;
-	
+
 	public Game(int mode){
-		
+
 		GAMEMODE = mode;
-		
+
 		//Create players
-		String name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog("Player 1") : "PC";	
+		String name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog("Player 1") : "PC";
 		String name2 = JOptionPane.showInputDialog("Player 2");
-		
+
+//		ColorSelectionWindow colorSelection = new ColorSelectionWindow();
+//		String selectedPalette = colorSelection.getSelectedPalette();
+
 		if(GAMEMODE==vsPC)
 			pc = new PC();
-		
+
 		Player player1 = (GAMEMODE==vsPC) ? pc : new Player(name);
-		Player player2 = new Player(name2);		
-		player2.toggleTurn();				//Initially, player2's turn		
-			
-		players = new Player[]{player1, player2};			
-		
+		Player player2 = new Player(name2);
+		player2.toggleTurn();				//Initially, player2's turn
+
+		players = new Player[]{player1, player2};
+
 		//Create Dealer
 		dealer = new Dealer();
 		cardStack = dealer.shuffle();
 		dealer.spreadOut(players);
-		
+
 		isOver = false;
 	}
 
@@ -53,13 +58,13 @@ public class Game implements GameConstants {
 	public UNOCard getCard() {
 		return dealer.getCard();
 	}
-	
+
 	public void removePlayedCard(UNOCard playedCard) {
 
 		for (Player p : players) {
 			if (p.hasCard(playedCard)){
 				p.removeCard(playedCard);
-				
+
 				if (p.getTotalCards() == 1 && !p.getSaidUNO()) {
 					infoPanel.setError(p.getName() + " Forgot to say UNO");
 					p.obtainCard(getCard());
@@ -67,10 +72,10 @@ public class Game implements GameConstants {
 				}else if(p.getTotalCards()>2){
 					p.setSaidUNOFalse();
 				}
-			}			
+			}
 		}
 	}
-	
+
 	//give player a card
 	public void drawCard(UNOCard topCard) {
 
@@ -81,14 +86,14 @@ public class Game implements GameConstants {
 				UNOCard newCard = getCard();
 				p.obtainCard(newCard);
 				canPlay = canPlay(topCard, newCard);
-				
+
 				if(pc.isMyTurn() && canPlay){
 					playPC(topCard);
 					canPlay = true;
 				}
 			}
 		}
-		
+
 		if (!canPlay)
 			switchTurn();
 	}
@@ -99,7 +104,7 @@ public class Game implements GameConstants {
 		}
 		whoseTurn();
 	}
-	
+
 	//Draw cards x times
 	public void drawPlus(int times) {
 		for (Player p : players) {
@@ -109,7 +114,7 @@ public class Game implements GameConstants {
 			}
 		}
 	}
-	
+
 	//response whose turn it is
 	public void whoseTurn() {
 
@@ -122,22 +127,22 @@ public class Game implements GameConstants {
 		infoPanel.setDetail(playedCardsSize(), remainingCards());
 		infoPanel.repaint();
 	}
-	
+
 	//return if the game is over
 	public boolean isOver() {
-		
+
 		if(cardStack.isEmpty()){
 			isOver= true;
 			return isOver;
 		}
-		
+
 		for (Player p : players) {
 			if (!p.hasCards()) {
 				isOver = true;
 				break;
 			}
 		}
-		
+
 		return isOver;
 	}
 
@@ -162,11 +167,11 @@ public class Game implements GameConstants {
 		if (topCard.getColor().equals(newCard.getColor())
 				|| topCard.getValue().equals(newCard.getValue()))
 			return true;
-		// if chosen wild card color matches
+			// if chosen wild card color matches
 		else if (topCard.getType() == WILD)
 			return ((WildCard) topCard).getWildColor().equals(newCard.getColor());
 
-		// suppose the new card is a wild card
+			// suppose the new card is a wild card
 		else if (newCard.getType() == WILD)
 			return true;
 
@@ -184,7 +189,7 @@ public class Game implements GameConstants {
 					p.obtainCard(getCard());
 				}
 			}
-		}		
+		}
 	}
 
 	public void setSaidUNO() {
@@ -197,7 +202,7 @@ public class Game implements GameConstants {
 			}
 		}
 	}
-	
+
 	public boolean isPCsTurn(){
 		if(pc.isMyTurn()){
 			return true;
@@ -206,11 +211,11 @@ public class Game implements GameConstants {
 	}
 
 	//if it's PC's turn, play it for pc
-	public void playPC(UNOCard topCard) {		
-		
+	public void playPC(UNOCard topCard) {
+
 		if (pc.isMyTurn()) {
 			boolean done = pc.play(topCard);
-			
+
 			if(!done)
 				drawCard(topCard);
 		}

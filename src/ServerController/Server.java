@@ -1,6 +1,6 @@
 package ServerController;
 /*
-Code created by Josh Braza 
+Code created by Josh Braza
 */
 import java.awt.Color;
 
@@ -32,7 +32,7 @@ public class Server implements GameConstants {
 		mode = requestMode();
 		startGame();
 	}
-	
+
 	public void startGame() {
 		game = new Game(mode);
 		playedCards = new Stack<UNOCard>();
@@ -40,10 +40,10 @@ public class Server implements GameConstants {
 		// First Card
 		UNOCard firstCard = game.getCard();
 		while(firstCard.getValue().equals(W_COLORPICKER) ||
-			  firstCard.getValue().equals(W_DRAW4PLUS)) {
+				firstCard.getValue().equals(W_DRAW4PLUS)) {
 			firstCard = game.getCard();
 		}
-		
+
 		modifyFirstCard(firstCard);
 
 		playedCards.add(firstCard);
@@ -68,7 +68,7 @@ public class Server implements GameConstants {
 
 		return GAMEMODES[n];
 	}
-	
+
 	//coustom settings for the first card
 	private void modifyFirstCard(UNOCard firstCard) {
 		firstCard.removeMouseListener(CARDLISTENER);
@@ -81,13 +81,13 @@ public class Server implements GameConstants {
 			}
 		}
 	}
-	
+
 	//return Main Panel
 	public Session getSession() {
 		return this.session;
 	}
-	
-	
+
+
 	//request to play a card
 	public void playThisCard(UNOCard clickedCard) {
 
@@ -102,14 +102,14 @@ public class Server implements GameConstants {
 				boolean cardConfirmed = true;
 				// function cards ??
 				switch (clickedCard.getType()) {
-				case ACTION:
-					performAction(clickedCard);
-					break;
-				case WILD:
-					cardConfirmed = performWild((WildCard) clickedCard);
-					break;
-				default:
-					break;
+					case ACTION:
+						performAction(clickedCard);
+						break;
+					case WILD:
+						cardConfirmed = performWild((WildCard) clickedCard);
+						break;
+					default:
+						break;
 				}
 				if(cardConfirmed) {
 					playClickedCard(clickedCard);
@@ -118,21 +118,21 @@ public class Server implements GameConstants {
 				infoPanel.setError("invalid move");
 				infoPanel.repaint();
 			}
-			
+
 		}
-				
+
 		if(mode==vsPC && canPlay){
 			if(game.isPCsTurn()){
 				game.playPC(peekTopCard());
 			}
 		}
 	}
-	
+
 	private void playClickedCard(UNOCard clickedCard) {
 		clickedCard.removeMouseListener(CARDLISTENER);
 		playedCards.add(clickedCard);
 		game.removePlayedCard(clickedCard);
-	
+
 		game.switchTurn();
 		clickedCard.setShowValue(true);
 		session.updatePanel(clickedCard);
@@ -148,7 +148,7 @@ public class Server implements GameConstants {
 			gameOverNewSession();
 		}
 	}
-	
+
 	//check player's turn
 	public boolean isHisTurn(UNOCard clickedCard) {
 
@@ -183,51 +183,51 @@ public class Server implements GameConstants {
 		// Draw2PLUS
 		if (actionCard.getValue().equals(DRAW2PLUS))
 			game.drawPlus(2);
-			
+
 		game.switchTurn();
 	}
 
-	private boolean performWild(WildCard functionCard) {		
+	private boolean performWild(WildCard functionCard) {
 
-		if(mode==1 && game.isPCsTurn()){			
+		if(mode==1 && game.isPCsTurn()){
 			int random = new Random().nextInt() % 4;
 			functionCard.useWildColor(UNO_COLORS[Math.abs(random)]);
 		} else {
-			
+
 			ArrayList<String> colors = new ArrayList<String>();
 			colors.add("RED");
 			colors.add("BLUE");
 			colors.add("GREEN");
 			colors.add("YELLOW");
-			
+
 			String chosenColor = (String) JOptionPane.showInputDialog(null,
 					"Choose a color", "Wild Card Color",
 					JOptionPane.DEFAULT_OPTION, null, colors.toArray(), null);
-			
+
 			if (chosenColor == null) {
 				return false;
 			}
-			
+
 			functionCard.useWildColor(UNO_COLORS[colors.indexOf(chosenColor)]);
-			
+
 		}
-		
+
 		if (functionCard.getValue().equals(W_DRAW4PLUS)) {
 			game.drawPlus(4);
 			game.switchTurn();
-		}			
-		
+		}
+
 		return true;
 	}
-	
+
 	public void requestCard() {
 		game.drawCard(peekTopCard());
-		
+
 		if(mode==vsPC && canPlay){
 			if(game.isPCsTurn())
 				game.playPC(peekTopCard());
 		}
-		
+
 		session.refreshPanel();
 	}
 
@@ -238,15 +238,15 @@ public class Server implements GameConstants {
 	public void submitSaidUNO() {
 		game.setSaidUNO();
 	}
-	
+
 	public void setObserver(Observer newObserver) {
 		observer = newObserver;
 	}
-	
+
 	public Observer observer() {
 		return observer;
 	}
-	
+
 	public void gameOverNewSession() {
 
 		Object[] options = { "New round", "Cancel" };
@@ -258,7 +258,7 @@ public class Server implements GameConstants {
 
 		if (n == 0) {
 			observer.runFunc();
-		} else { 
+		} else {
 			System.exit(1);
 		}
 	}
