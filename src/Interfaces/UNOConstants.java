@@ -25,31 +25,31 @@ public class UNOConstants {
                 break;
             case "Acromatopsia":
                 // Defina as cores para Acromatopsia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
+                RED = new Color(148, 148, 148);
+                BLUE = new Color(105, 105, 103);
+                GREEN = new Color(180, 180, 180);
+                YELLOW = new Color(210, 189, 189);
                 break;
             case "Tritanomalia":
                 // Defina as cores para Tritanomalia aqui
                 RED = new Color(255, 25, 94);
                 BLUE = new Color(0, 101, 146);
                 GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
+                YELLOW = new Color(124, 110, 115);
                 break;
             case "Deuteromalia":
                 // Defina as cores para Deuteromalia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
+                RED = new Color(165, 90, 47);
+                BLUE = new Color(28, 95, 184);
+                GREEN = new Color(217, 227, 123);
+                YELLOW = new Color(242, 222, 10);
                 break;
             case "Protanomalia":
                 // Defina as cores para Protanomalia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
+                RED = new Color(159, 87, 64);
+                BLUE = new Color(26, 110, 191);
+                GREEN = new Color(151, 211, 68);
+                YELLOW = new Color(245, 216, 12);
                 break;
             default:
                 // Defina um valor padrão aqui, se necessário
