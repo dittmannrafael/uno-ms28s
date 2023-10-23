@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import CardModel.*;
 import Interfaces.GameConstants;
 import View.UNOCard;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 //import static Interfaces.UNOConstants.WILD;
 
@@ -26,7 +29,6 @@ public class Game implements GameConstants {
 	public Game(int mode){
 
 		GAMEMODE = mode;
-
 		//Create players
 		String name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog("Player 1") : "PC";
 		String name2 = JOptionPane.showInputDialog("Player 2");
@@ -39,6 +41,9 @@ public class Game implements GameConstants {
 
 		Player player1 = (GAMEMODE==vsPC) ? pc : new Player(name);
 		Player player2 = new Player(name2);
+
+		playBackgroundMusic("D:\\Area de trabalho\\Aula\\MS28S\\Projeto\\uno-ms28s\\src\\Sounds\\Run-Amok_chosic.com_.wav");
+
 		player2.toggleTurn();				//Initially, player2's turn
 
 		players = new Player[]{player1, player2};
@@ -49,6 +54,94 @@ public class Game implements GameConstants {
 		dealer.spreadOut(players);
 
 		isOver = false;
+	}
+
+	private void playBackgroundMusic(String audioFilePath) {
+		try {
+			// Carrega o arquivo de música de fundo
+			File audioFile = new File(audioFilePath);
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+
+			// Cria um Clip para reproduzir a música de fundo
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+
+			// Reproduz a música em loop
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+			// Inicia a reprodução
+			clip.start();
+		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void playAudio(String audioFilePath) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					// Carregue o arquivo de áudio
+					File audioFile = new File(audioFilePath);
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+
+					// Crie um Clip para reproduzir o áudio
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+
+					// Reproduza o áudio
+					clip.start();
+
+					// Não aguarde a reprodução terminar
+
+					// Libere os recursos do Clip quando a reprodução terminar
+					clip.addLineListener(new LineListener() {
+						@Override
+						public void update(LineEvent event) {
+							if (event.getType() == LineEvent.Type.STOP) {
+								clip.close();
+							}
+						}
+					});
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
+
+	private void playCardSound() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					// Carregue o arquivo de som da carta
+					File audioFile = new File("D:\\Area de trabalho\\Aula\\MS28S\\Projeto\\uno-ms28s\\src\\Sounds\\depositphotos_414403158-track-short-recording-footstep-dry-grass.wav");
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+
+					// Crie um Clip para reproduzir o som
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+
+					// Reproduza o som
+					clip.start();
+
+					// Não aguarde a reprodução terminar
+
+					// Libere os recursos do Clip quando a reprodução terminar
+					clip.addLineListener(new LineListener() {
+						@Override
+						public void update(LineEvent event) {
+							if (event.getType() == LineEvent.Type.STOP) {
+								clip.close();
+							}
+						}
+					});
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
 	}
 
 	public Player[] getPlayers() {
@@ -64,6 +157,7 @@ public class Game implements GameConstants {
 		for (Player p : players) {
 			if (p.hasCard(playedCard)){
 				p.removeCard(playedCard);
+				playCardSound();
 
 				if (p.getTotalCards() == 1 && !p.getSaidUNO()) {
 					infoPanel.setError(p.getName() + " Forgot to say UNO");
@@ -93,6 +187,8 @@ public class Game implements GameConstants {
 				}
 			}
 		}
+
+		playAudio("D:\\Area de trabalho\\Aula\\MS28S\\Projeto\\uno-ms28s\\src\\Sounds\\depositphotos_431797418-track-heavily-pushing-releasing-spacebar-keyboard.wav");
 
 		if (!canPlay)
 			switchTurn();
