@@ -56,7 +56,7 @@ public class Game implements GameConstants {
 		isOver = false;
 	}
 
-	private void playBackgroundMusic(String audioFilePath) {
+	private void playBackgroundMusic(String audioFilePath) { //som de fundo
 		try {
 			// Carrega o arquivo de música de fundo
 			File audioFile = new File(audioFilePath);
@@ -80,7 +80,7 @@ public class Game implements GameConstants {
 		}
 	}
 
-	private void playAudio(String audioFilePath) {
+	private void playAudio(String audioFilePath) { //pescar carta
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -112,7 +112,7 @@ public class Game implements GameConstants {
 		}).start();
 	}
 
-	private void playCardSound() {
+	private void playCardSound() { //jogar carta
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
