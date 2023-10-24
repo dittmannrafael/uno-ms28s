@@ -62,9 +62,13 @@ public class Game implements GameConstants {
 			File audioFile = new File(audioFilePath);
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
 
-			// Cria um Clip para reproduzir a música de fundo
+			// Cria um Clip para reproduzir a musica de fundo
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
+
+			//Controla o volume da musica
+			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+			gainControl.setValue(-20.0f);
 
 			// Reproduz a música em loop
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -91,8 +95,6 @@ public class Game implements GameConstants {
 
 					// Reproduza o áudio
 					clip.start();
-
-					// Não aguarde a reprodução terminar
 
 					// Libere os recursos do Clip quando a reprodução terminar
 					clip.addLineListener(new LineListener() {
@@ -125,8 +127,6 @@ public class Game implements GameConstants {
 
 					// Reproduza o som
 					clip.start();
-
-					// Não aguarde a reprodução terminar
 
 					// Libere os recursos do Clip quando a reprodução terminar
 					clip.addLineListener(new LineListener() {
