@@ -3,6 +3,7 @@ package GameModel;
 Code created by Josh Braza
 */
 
+import java.io.FileNotFoundException;
 import java.util.Stack;
 
 import javax.swing.JOptionPane;
@@ -58,24 +59,27 @@ public class Game implements GameConstants {
 
 	private void playBackgroundMusic(String audioFilePath) { //som de fundo
 		try {
-			// Carrega o arquivo de música de fundo
 			File audioFile = new File(audioFilePath);
+			if (!audioFile.exists()) {
+				throw new FileNotFoundException("O arquivo de áudio não foi encontrado: " + audioFilePath);
+			}
+
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
 
-			// Cria um Clip para reproduzir a musica de fundo
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 
-			//Controla o volume da musica
 			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			gainControl.setValue(-20.0f);
+			gainControl.setValue(-10.0f);
 
-			// Reproduz a música em loop
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 
-			// Inicia a reprodução
 			clip.start();
+		} catch (FileNotFoundException e) {
+			// Arquivo não encontrado
+			e.printStackTrace();
 		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+			// Outras exceções
 			e.printStackTrace();
 		}
 	}
@@ -85,18 +89,18 @@ public class Game implements GameConstants {
 			@Override
 			public void run() {
 				try {
-					// Carregue o arquivo de áudio
 					File audioFile = new File(audioFilePath);
+					if (!audioFile.exists()) {
+						throw new FileNotFoundException("O arquivo de áudio não foi encontrado: " + audioFilePath);
+					}
+
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
 
-					// Crie um Clip para reproduzir o áudio
 					Clip clip = AudioSystem.getClip();
 					clip.open(audioInputStream);
 
-					// Reproduza o áudio
 					clip.start();
 
-					// Libere os recursos do Clip quando a reprodução terminar
 					clip.addLineListener(new LineListener() {
 						@Override
 						public void update(LineEvent event) {
@@ -105,7 +109,11 @@ public class Game implements GameConstants {
 							}
 						}
 					});
+				} catch (FileNotFoundException e) {
+					// Lide com o erro de arquivo não encontrado
+					e.printStackTrace();
 				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+					// Lide com outras exceções
 					e.printStackTrace();
 				}
 			}
@@ -117,18 +125,18 @@ public class Game implements GameConstants {
 			@Override
 			public void run() {
 				try {
-					// Carregue o arquivo de som da carta
 					File audioFile = new File("D:\\Area de trabalho\\Aula\\MS28S\\Projeto\\uno-ms28s\\src\\Sounds\\depositphotos_414403158-track-short-recording-footstep-dry-grass.wav");
+					if (!audioFile.exists()) {
+						throw new FileNotFoundException("O arquivo de áudio não foi encontrado: " + audioFile.getPath());
+					}
+
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
 
-					// Crie um Clip para reproduzir o som
 					Clip clip = AudioSystem.getClip();
 					clip.open(audioInputStream);
 
-					// Reproduza o som
 					clip.start();
 
-					// Libere os recursos do Clip quando a reprodução terminar
 					clip.addLineListener(new LineListener() {
 						@Override
 						public void update(LineEvent event) {
@@ -137,7 +145,11 @@ public class Game implements GameConstants {
 							}
 						}
 					});
+				} catch (FileNotFoundException e) {
+					// Lide com o erro de arquivo não encontrado
+					e.printStackTrace();
 				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+					// Lide com outras exceções
 					e.printStackTrace();
 				}
 			}
