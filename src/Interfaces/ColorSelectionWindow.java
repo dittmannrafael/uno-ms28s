@@ -16,7 +16,6 @@ public class ColorSelectionWindow {
         switch (choice) {
             case 0: // Padrão
                 selectedPalette = "Padrao";
-                unoConstants.setColors(selectedPalette); // Define as cores para a paleta selecionada
                 break;
             case 1: // Acromatopsia
                 selectedPalette = "Acromatopsia";
@@ -25,7 +24,6 @@ public class ColorSelectionWindow {
             case 2: // Tritanomalia
                 selectedPalette = "Tritanomalia";
                 // Defina as cores para Tritanomalia aqui
-                unoConstants.setColors(selectedPalette);
                 break;
             case 3: // Deuteromalia
                 selectedPalette = "Deuteromalia";
