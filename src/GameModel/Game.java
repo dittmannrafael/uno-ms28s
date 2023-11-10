@@ -27,6 +27,8 @@ public class Game implements GameConstants {
 	private Dealer dealer;
 	private Stack<UNOCard> cardStack;
 
+	private Clip backgroundMusicClip;
+
 	public Game(int mode){
 
 		GAMEMODE = mode;
@@ -70,17 +72,28 @@ public class Game implements GameConstants {
 			clip.open(audioInputStream);
 
 			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			gainControl.setValue(-10.0f);
+			gainControl.setValue(-30.0f);
 
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 
 			clip.start();
+
+			backgroundMusicClip = clip;
+			backgroundMusicClip.loop(Clip.LOOP_CONTINUOUSLY);
+			backgroundMusicClip.start();
 		} catch (FileNotFoundException e) {
 			// Arquivo não encontrado
 			e.printStackTrace();
 		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
 			// Outras exceções
 			e.printStackTrace();
+		}
+	}
+
+	private void stopBackgroundMusic() {
+		if (backgroundMusicClip != null && backgroundMusicClip.isRunning()) {
+			backgroundMusicClip.stop();
+			backgroundMusicClip.close();
 		}
 	}
 
@@ -241,12 +254,14 @@ public class Game implements GameConstants {
 
 		if(cardStack.isEmpty()){
 			isOver= true;
+			stopBackgroundMusic();//parar de tocar a musica de fundo
 			return isOver;
 		}
 
 		for (Player p : players) {
 			if (!p.hasCards()) {
 				isOver = true;
+				stopBackgroundMusic();//parar de tocar a musica de fundo
 				break;
 			}
 		}
