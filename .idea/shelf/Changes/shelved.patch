@@ -1,0 +1,839 @@
+Index: src/Interfaces/UNOConstants.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Interfaces;\r\nimport java.awt.Color;\r\n/*\r\nCode created by Josh Braza \r\n*/\r\npublic interface UNOConstants {\r\n\t\r\n\t//Colors\r\n\tpublic static Color RED = new Color(192,80,77);\r\n\tpublic static Color BLUE = new Color(31,73,125);\r\n\tpublic static Color GREEN = new Color(0,153,0);\r\n\tpublic static Color YELLOW = new Color(255,204,0);\r\n\t\r\n\tpublic static Color BLACK = new Color(0,0,0);\r\n\t\r\n\t//Types\r\n\tpublic static int NUMBERS = 1;\r\n\tpublic static int ACTION = 2;\r\n\tpublic static int WILD = 3;\r\n\t\r\n\t//ActionCard Characters\r\n\tCharacter charREVERSE = (char) 8634;\t\t\t\t\t\t\t//Decimal\r\n\tCharacter charSKIP    = (char) Integer.parseInt(\"2718\",16); \t//Unicode\r\n\t\r\n\t//ActionCard Functions\r\n\tString REVERSE = charREVERSE.toString();\r\n\tString SKIP\t= charSKIP.toString();\r\n\tString DRAW2PLUS = \"2+\";\r\n\t\r\n\t//Wild card functions\r\n\tString W_COLORPICKER = \"W\";\r\n\tString W_DRAW4PLUS = \"4+\";\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Interfaces/UNOConstants.java b/src/Interfaces/UNOConstants.java
+--- a/src/Interfaces/UNOConstants.java	(revision b232f0011b40320c791e034858484d897e508baf)
++++ b/src/Interfaces/UNOConstants.java	(date 1695079135960)
+@@ -1,33 +1,184 @@
+ package Interfaces;
++
+ import java.awt.Color;
+ /*
+-Code created by Josh Braza 
++Code created by Josh Braza
+ */
+-public interface UNOConstants {
+-	
+-	//Colors
+-	public static Color RED = new Color(192,80,77);
+-	public static Color BLUE = new Color(31,73,125);
+-	public static Color GREEN = new Color(0,153,0);
+-	public static Color YELLOW = new Color(255,204,0);
+-	
+-	public static Color BLACK = new Color(0,0,0);
+-	
+-	//Types
+-	public static int NUMBERS = 1;
+-	public static int ACTION = 2;
+-	public static int WILD = 3;
+-	
+-	//ActionCard Characters
+-	Character charREVERSE = (char) 8634;							//Decimal
+-	Character charSKIP    = (char) Integer.parseInt("2718",16); 	//Unicode
+-	
+-	//ActionCard Functions
+-	String REVERSE = charREVERSE.toString();
+-	String SKIP	= charSKIP.toString();
+-	String DRAW2PLUS = "2+";
+-	
+-	//Wild card functions
+-	String W_COLORPICKER = "W";
+-	String W_DRAW4PLUS = "4+";	
+-}
++public class UNOConstants {
++    //    public static final String W_DRAW4PLUS = "©";
++    //Colors
++    public Color RED;
++    public Color BLUE;
++    public Color GREEN;
++    public Color YELLOW;
++
++    public UNOConstants() {
++
++    }
++
++    //    public static Color BLACK = new Color(0,0,0);
++
++    // Método para definir as cores com base na paleta selecionada
++    public void setColors(String palette) {
++        switch (palette) {
++            case "Padrao":
++                RED = new Color(192, 80, 77);
++                BLUE = new Color(31, 73, 125);
++                GREEN = new Color(0, 153, 0);
++                YELLOW = new Color(255, 204, 0);
++                break;
++            case "Acromatopsia":
++                // Defina as cores para Acromatopsia aqui
++                RED = new Color(255, 25, 94);
++                BLUE = new Color(0, 101, 146);
++                GREEN = new Color(44, 204, 235);
++                YELLOW = new Color(255, 233, 240);
++                break;
++            case "Tritanomalia":
++                // Defina as cores para Tritanomalia aqui
++                RED = new Color(255, 25, 94);
++                BLUE = new Color(0, 101, 146);
++                GREEN = new Color(44, 204, 235);
++                YELLOW = new Color(255, 233, 240);
++                break;
++            case "Deuteromalia":
++                // Defina as cores para Deuteromalia aqui
++                RED = new Color(255, 25, 94);
++                BLUE = new Color(0, 101, 146);
++                GREEN = new Color(44, 204, 235);
++                YELLOW = new Color(255, 233, 240);
++                break;
++            case "Protanomalia":
++                // Defina as cores para Protanomalia aqui
++                RED = new Color(255, 25, 94);
++                BLUE = new Color(0, 101, 146);
++                GREEN = new Color(44, 204, 235);
++                YELLOW = new Color(255, 233, 240);
++                break;
++            default:
++                // Defina um valor padrão aqui, se necessário
++                RED = new Color(192, 80, 77);
++                BLUE = new Color(31, 73, 125);
++                GREEN = new Color(0, 153, 0);
++                YELLOW = new Color(255, 204, 0);
++                break;
++        }
++    }
++
++    // Getters para as cores
++    public Color getRED(String palette) {
++        switch (palette) {
++            case "Padrao":
++                RED = new Color(192, 80, 77);
++                break;
++            case "Acromatopsia":
++                // Defina as cores para Acromatopsia aqui
++                RED = new Color(114, 114, 112);
++                break;
++            case "Tritanomalia":
++                // Defina as cores para Tritanomalia aqui
++                RED = new Color(255, 25, 94);
++                break;
++            case "Deuteromalia":
++                // Defina as cores para Deuteromalia aqui
++                RED = new Color(147, 91, 72);
++                break;
++            case "Protanomalia":
++                // Defina as cores para Protanomalia aqui
++                RED = new Color(159, 87, 64);
++                break;
++            default:
++                // Defina um valor padrão aqui, se necessário
++                RED = new Color(255, 25, 94);
++                break;
++        }
++        return RED;
++    }
++
++    public Color getBLUE(String palette) {
++        switch (palette) {
++            case "Padrao":
++                BLUE = new Color(31, 73, 125);
++                break;
++            case "Acromatopsia":
++                // Defina as cores para Acromatopsia aqui
++                BLUE = new Color(53, 54, 53);
++                break;
++            case "Tritanomalia":
++                // Defina as cores para Tritanomalia aqui
++                BLUE = new Color(0, 101, 146);
++                break;
++            case "Deuteromalia":
++                // Defina as cores para Deuteromalia aqui
++                BLUE = new Color(16, 156, 216);
++                break;
++            case "Protanomalia":
++                // Defina as cores para Protanomalia aqui
++                BLUE = new Color(27, 79, 175);
++                break;
++            default:
++                // Defina um valor padrão aqui, se necessário
++                BLUE = new Color(31, 73, 125);
++                break;
++        }
++        return BLUE;
++    }
++
++    public Color getGREEN(String palette) {
++        switch (palette) {
++            case "Padrao":
++                GREEN = new Color(0, 153, 0);
++                break;
++            case "Acromatopsia":
++                // Defina as cores para Acromatopsia aqui
++                GREEN = new Color(179, 179, 179);
++                break;
++            case "Tritanomalia":
++                // Defina as cores para Tritanomalia aqui
++                GREEN = new Color(44, 204, 235);
++                break;
++            case "Deuteromalia":
++                // Defina as cores para Deuteromalia aqui
++                GREEN = new Color(124, 127, 88);
++                break;
++            case "Protanomalia":
++                // Defina as cores para Protanomalia aqui
++                GREEN = new Color(106, 221, 107);
++                break;
++            default:
++                // Defina um valor padrão aqui, se necessário
++                GREEN = new Color(0, 153, 0);
++                break;
++        }
++        return GREEN;
++    }
++
++    public Color getYELLOW(String palette) {
++        switch (palette) {
++            case "Padrao":
++                YELLOW = new Color(255, 204, 0);
++                break;
++            case "Acromatopsia":
++                // Defina as cores para Acromatopsia aqui
++                YELLOW = new Color(222, 194, 194);
++                break;
++            case "Tritanomalia":
++                // Defina as cores para Tritanomalia aqui
++                YELLOW = new Color(147, 136, 139);
++                break;
++            case "Deuteromalia":
++                // Defina as cores para Deuteromalia aqui
++                YELLOW = new Color(245, 227, 15);
++                break;
++            case "Protanomalia":
++                // Defina as cores para Protanomalia aqui
++                YELLOW = new Color(245, 220, 10);
++                break;
++            default:
++                // Defina um valor padrão aqui, se necessário
++                YELLOW = new Color(255, 204, 0);
++                break;
++        }
++        return YELLOW;
++    }
++}
+\ No newline at end of file
+Index: src/Interfaces/ColorSelectionWindow.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Interfaces/ColorSelectionWindow.java b/src/Interfaces/ColorSelectionWindow.java
+new file mode 100644
+--- /dev/null	(date 1695061907081)
++++ b/src/Interfaces/ColorSelectionWindow.java	(date 1695061907081)
+@@ -0,0 +1,48 @@
++package Interfaces;
++
++import javax.swing.*;
++import java.awt.*;
++
++public class ColorSelectionWindow {
++	public String selectedPalette;
++
++	public ColorSelectionWindow() {
++		Object[] options = {"Padrão", "Acromatopsia", "Tritanomalia", "Deuteromalia", "Protanomalia"};
++		int choice = JOptionPane.showOptionDialog(null, "Escolha uma paleta de cores:", "Seleção de Cores", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
++		//String selectedPalette;
++		// Defina a paleta com base na escolha do jogador
++		UNOConstants unoConstants = new UNOConstants();
++		// Defina a paleta com base na escolha do jogador
++		switch (choice) {
++			case 0: // Padrão
++				selectedPalette = "Padrao";
++				unoConstants.setColors(selectedPalette); // Define as cores para a paleta selecionada
++				break;
++			case 1: // Acromatopsia
++				selectedPalette = "Acromatopsia";
++				// Defina as cores para Acromatopsia aqui
++				break;
++			case 2: // Tritanomalia
++				selectedPalette = "Tritanomalia";
++				// Defina as cores para Tritanomalia aqui
++				unoConstants.setColors(selectedPalette);
++				break;
++			case 3: // Deuteromalia
++				selectedPalette = "Deuteromalia";
++				// Defina as cores para Deuteromalia aqui
++				break;
++			case 4: // Protanomalia
++				selectedPalette = "Protanomalia";
++				// Defina as cores para Protanomalia aqui
++				break;
++			default: // Padrão (caso o jogador cancele a seleção)
++				selectedPalette = "Padrão";
++				// Defina as cores para o padrão aqui, se necessário
++				break;
++		}
++	}
++
++	public String getSelectedPalette() {
++		return selectedPalette;
++	}
++}
+\ No newline at end of file
+Index: src/Interfaces/GameConstants.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Interfaces;\r\n/*\r\nCode created by Josh Braza \r\n*/\r\nimport java.awt.Color;\r\n\r\nimport ServerController.MyButtonListener;\r\nimport ServerController.MyCardListener;\r\nimport View.InfoPanel;\r\n\r\n\r\npublic interface GameConstants extends UNOConstants {\r\n\t\r\n\tint TOTAL_CARDS = 108;\r\n\tint FIRSTHAND = 8;\r\n\t\r\n\tColor[] UNO_COLORS = {RED, BLUE, GREEN, YELLOW};\r\n\tColor WILD_CARDCOLOR = BLACK;\r\n\t\r\n\tint[] UNO_NUMBERS =  {0,1,2,3,4,5,6,7,8,9};\t\r\n\tString[] ActionTypes = {REVERSE,SKIP,DRAW2PLUS};\t\r\n\tString[] WildTypes = {W_COLORPICKER, W_DRAW4PLUS};\r\n\t\r\n\tint vsPC = 1;\r\n\tint MANUAL = 2;\r\n\t\r\n\tint[] GAMEMODES = {vsPC, MANUAL};\r\n\t\r\n\tMyCardListener CARDLISTENER = new MyCardListener();\r\n\tMyButtonListener BUTTONLISTENER = new MyButtonListener();\r\n\t\r\n\tInfoPanel infoPanel = new InfoPanel();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Interfaces/GameConstants.java b/src/Interfaces/GameConstants.java
+--- a/src/Interfaces/GameConstants.java	(revision b232f0011b40320c791e034858484d897e508baf)
++++ b/src/Interfaces/GameConstants.java	(date 1695068204578)
+@@ -9,18 +9,29 @@
+ import View.InfoPanel;
+ 
+ 
+-public interface GameConstants extends UNOConstants {
+-	
++public interface GameConstants extends UNOConstants_Original{
+ 	int TOTAL_CARDS = 108;
+ 	int FIRSTHAND = 8;
+ 	
+-	Color[] UNO_COLORS = {RED, BLUE, GREEN, YELLOW};
++	//	Color[] UNO_COLORS = {RED, BLUE, GREEN, YELLOW};
++
++	UNOConstants unoConstants = new UNOConstants();
++	ColorSelectionWindow colorSelection = new ColorSelectionWindow();
++	String selectedPalette = colorSelection.getSelectedPalette();
++
++
++	Color[] UNO_COLORS = {unoConstants.getRED(selectedPalette), unoConstants.getBLUE(selectedPalette), unoConstants.getGREEN(selectedPalette), unoConstants.getYELLOW(selectedPalette)};
++
+ 	Color WILD_CARDCOLOR = BLACK;
+ 	
+-	int[] UNO_NUMBERS =  {0,1,2,3,4,5,6,7,8,9};	
+-	String[] ActionTypes = {REVERSE,SKIP,DRAW2PLUS};	
++	int[] UNO_NUMBERS =  {0,1,2,3,4,5,6,7,8,9};
++
++//	String[] ActionTypes = {REVERSE,SKIP,DRAW2PLUS};
++//	String[] WildTypes = {W_COLORPICKER, W_DRAW4PLUS};
++	String[] ActionTypes = {REVERSE, SKIP, DRAW2PLUS};
+ 	String[] WildTypes = {W_COLORPICKER, W_DRAW4PLUS};
+-	
++
++
+ 	int vsPC = 1;
+ 	int MANUAL = 2;
+ 	
+Index: src/Interfaces/UNOConstants_Original.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Interfaces/UNOConstants_Original.java b/src/Interfaces/UNOConstants_Original.java
+new file mode 100644
+--- /dev/null	(date 1695064010250)
++++ b/src/Interfaces/UNOConstants_Original.java	(date 1695064010250)
+@@ -0,0 +1,33 @@
++package Interfaces;
++
++import java.awt.Color;
++/*
++Code created by Josh Braza
++*/
++public interface UNOConstants_Original {
++	//Colors
++//	public static Color RED = new Color(192,80,77);
++//	public static Color BLUE = new Color(31,73,125);
++//	public static Color GREEN = new Color(0,153,0);
++//	public static Color YELLOW = new Color(255,204,0);
++
++	public static Color BLACK = new Color(0,0,0);
++
++	//Types
++	public static int NUMBERS = 1;
++	public static int ACTION = 2;
++	public static int WILD = 3;
++
++	//ActionCard Characters
++	Character charREVERSE = (char) 8634;							//Decimal
++	Character charSKIP    = (char) Integer.parseInt("2718",16); 	//Unicode
++
++	//ActionCard Functions
++	String REVERSE = charREVERSE.toString();
++	String SKIP	= charSKIP.toString();
++	String DRAW2PLUS = "2+";
++
++	//Wild card functions
++	String W_COLORPICKER = "W";
++	String W_DRAW4PLUS = "4+";
++}
+\ No newline at end of file
+Index: src/ServerController/Server.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ServerController;\r\n/*\r\nCode created by Josh Braza \r\n*/\r\nimport java.awt.Color;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Random;\r\nimport java.util.Stack;\r\n\r\nimport javax.swing.JOptionPane;\r\n\r\nimport CardModel.WildCard;\r\nimport GameModel.Game;\r\nimport GameModel.Player;\r\nimport Interfaces.GameConstants;\r\nimport View.Session;\r\nimport View.UNOCard;\r\n\r\nimport ServerController.Observer;\r\n\r\npublic class Server implements GameConstants {\r\n\tprivate Game game;\r\n\tprivate Session session;\r\n\tprivate Stack<UNOCard> playedCards;\r\n\tpublic boolean canPlay;\r\n\tprivate int mode;\r\n\tprivate Observer observer;\r\n\r\n\tpublic Server() {\r\n\r\n\t\tmode = requestMode();\r\n\t\tstartGame();\r\n\t}\r\n\t\r\n\tpublic void startGame() {\r\n\t\tgame = new Game(mode);\r\n\t\tplayedCards = new Stack<UNOCard>();\r\n\r\n\t\t// First Card\r\n\t\tUNOCard firstCard = game.getCard();\r\n\t\twhile(firstCard.getValue().equals(W_COLORPICKER) ||\r\n\t\t\t  firstCard.getValue().equals(W_DRAW4PLUS)) {\r\n\t\t\tfirstCard = game.getCard();\r\n\t\t}\r\n\t\t\r\n\t\tmodifyFirstCard(firstCard);\r\n\r\n\t\tplayedCards.add(firstCard);\r\n\t\tsession = new Session(game, firstCard);\r\n\r\n\t\tgame.whoseTurn();\r\n\t\tcanPlay = true;\r\n\t}\r\n\r\n\t//return if it's 2-Player's mode or PC-mode\r\n\tprivate int requestMode() {\r\n\r\n\t\tObject[] options = { \"vs PC\", \"Manual\", \"Cancel\" };\r\n\r\n\t\tint n = JOptionPane.showOptionDialog(null,\r\n\t\t\t\t\"Choose a Game Mode to play\", \"Game Mode\",\r\n\t\t\t\tJOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,\r\n\t\t\t\tnull, options, options[0]);\r\n\r\n\t\tif (n == 2 || n < 0)\r\n\t\t\tSystem.exit(1);\r\n\r\n\t\treturn GAMEMODES[n];\r\n\t}\r\n\t\r\n\t//coustom settings for the first card\r\n\tprivate void modifyFirstCard(UNOCard firstCard) {\r\n\t\tfirstCard.removeMouseListener(CARDLISTENER);\r\n\t\tif (firstCard.getType() == WILD) {\r\n\t\t\tint random = new Random().nextInt() % 4;\r\n\t\t\ttry {\r\n\t\t\t\t((WildCard) firstCard).useWildColor(UNO_COLORS[Math.abs(random)]);\r\n\t\t\t} catch (Exception ex) {\r\n\t\t\t\tSystem.out.println(\"something wrong with modifyFirstcard\");\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\t//return Main Panel\r\n\tpublic Session getSession() {\r\n\t\treturn this.session;\r\n\t}\r\n\t\r\n\t\r\n\t//request to play a card\r\n\tpublic void playThisCard(UNOCard clickedCard) {\r\n\r\n\t\t// Check player's turn\r\n\t\tif (!isHisTurn(clickedCard)) {\r\n\t\t\tinfoPanel.setError(\"It's not your turn\");\r\n\t\t\tinfoPanel.repaint();\r\n\t\t} else {\r\n\r\n\t\t\t// Card validation\r\n\t\t\tif (isValidMove(clickedCard)) {\r\n\t\t\t\tboolean cardConfirmed = true;\r\n\t\t\t\t// function cards ??\r\n\t\t\t\tswitch (clickedCard.getType()) {\r\n\t\t\t\tcase ACTION:\r\n\t\t\t\t\tperformAction(clickedCard);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase WILD:\r\n\t\t\t\t\tcardConfirmed = performWild((WildCard) clickedCard);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tdefault:\r\n\t\t\t\t\tbreak;\r\n\t\t\t\t}\r\n\t\t\t\tif(cardConfirmed) {\r\n\t\t\t\t\tplayClickedCard(clickedCard);\r\n\t\t\t\t}\r\n\t\t\t} else {\r\n\t\t\t\tinfoPanel.setError(\"invalid move\");\r\n\t\t\t\tinfoPanel.repaint();\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t\t\t\r\n\t\tif(mode==vsPC && canPlay){\r\n\t\t\tif(game.isPCsTurn()){\r\n\t\t\t\tgame.playPC(peekTopCard());\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\tprivate void playClickedCard(UNOCard clickedCard) {\r\n\t\tclickedCard.removeMouseListener(CARDLISTENER);\r\n\t\tplayedCards.add(clickedCard);\r\n\t\tgame.removePlayedCard(clickedCard);\r\n\t\r\n\t\tgame.switchTurn();\r\n\t\tclickedCard.setShowValue(true);\r\n\t\tsession.updatePanel(clickedCard);\r\n\t\tcheckResults();\r\n\t}\r\n\r\n\t//Check if the game is over\r\n\tprivate void checkResults() {\r\n\r\n\t\tif (game.isOver()) {\r\n\t\t\tcanPlay = false;\r\n\t\t\tinfoPanel.updateText(\"GAME OVER\");\r\n\t\t\tgameOverNewSession();\r\n\t\t}\r\n\t}\r\n\t\r\n\t//check player's turn\r\n\tpublic boolean isHisTurn(UNOCard clickedCard) {\r\n\r\n\t\tfor (Player p : game.getPlayers()) {\r\n\t\t\tif (p.hasCard(clickedCard) && p.isMyTurn())\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t//check if it is a valid card\r\n\tpublic boolean isValidMove(UNOCard playedCard) {\r\n\t\tUNOCard topCard = peekTopCard();\r\n\r\n\t\tif (playedCard.getColor().equals(topCard.getColor())\r\n\t\t\t\t|| playedCard.getValue().equals(topCard.getValue())) {\r\n\t\t\treturn true;\r\n\t\t}\r\n\r\n\t\telse if (playedCard.getType() == WILD) {\r\n\t\t\treturn true;\r\n\t\t} else if (topCard.getType() == WILD) {\r\n\t\t\tColor color = ((WildCard) topCard).getWildColor();\r\n\t\t\tif (color.equals(playedCard.getColor()))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t// ActionCards\r\n\tprivate void performAction(UNOCard actionCard) {\r\n\t\t// Draw2PLUS\r\n\t\tif (actionCard.getValue().equals(DRAW2PLUS))\r\n\t\t\tgame.drawPlus(2);\r\n\t\t\t\r\n\t\tgame.switchTurn();\r\n\t}\r\n\r\n\tprivate boolean performWild(WildCard functionCard) {\t\t\r\n\r\n\t\tif(mode==1 && game.isPCsTurn()){\t\t\t\r\n\t\t\tint random = new Random().nextInt() % 4;\r\n\t\t\tfunctionCard.useWildColor(UNO_COLORS[Math.abs(random)]);\r\n\t\t} else {\r\n\t\t\t\r\n\t\t\tArrayList<String> colors = new ArrayList<String>();\r\n\t\t\tcolors.add(\"RED\");\r\n\t\t\tcolors.add(\"BLUE\");\r\n\t\t\tcolors.add(\"GREEN\");\r\n\t\t\tcolors.add(\"YELLOW\");\r\n\t\t\t\r\n\t\t\tString chosenColor = (String) JOptionPane.showInputDialog(null,\r\n\t\t\t\t\t\"Choose a color\", \"Wild Card Color\",\r\n\t\t\t\t\tJOptionPane.DEFAULT_OPTION, null, colors.toArray(), null);\r\n\t\t\t\r\n\t\t\tif (chosenColor == null) {\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tfunctionCard.useWildColor(UNO_COLORS[colors.indexOf(chosenColor)]);\r\n\t\t\t\r\n\t\t}\r\n\t\t\r\n\t\tif (functionCard.getValue().equals(W_DRAW4PLUS)) {\r\n\t\t\tgame.drawPlus(4);\r\n\t\t\tgame.switchTurn();\r\n\t\t}\t\t\t\r\n\t\t\r\n\t\treturn true;\r\n\t}\r\n\t\r\n\tpublic void requestCard() {\r\n\t\tgame.drawCard(peekTopCard());\r\n\t\t\r\n\t\tif(mode==vsPC && canPlay){\r\n\t\t\tif(game.isPCsTurn())\r\n\t\t\t\tgame.playPC(peekTopCard());\r\n\t\t}\r\n\t\t\r\n\t\tsession.refreshPanel();\r\n\t}\r\n\r\n\tpublic UNOCard peekTopCard() {\r\n\t\treturn playedCards.peek();\r\n\t}\r\n\r\n\tpublic void submitSaidUNO() {\r\n\t\tgame.setSaidUNO();\r\n\t}\r\n\t\r\n\tpublic void setObserver(Observer newObserver) {\r\n\t\tobserver = newObserver;\r\n\t}\r\n\t\r\n\tpublic Observer observer() {\r\n\t\treturn observer;\r\n\t}\r\n\t\r\n\tpublic void gameOverNewSession() {\r\n\r\n\t\tObject[] options = { \"New round\", \"Cancel\" };\r\n\r\n\t\tint n = JOptionPane.showOptionDialog(null,\r\n\t\t\t\t\"Choose how to proceed\", \"select\",\r\n\t\t\t\tJOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,\r\n\t\t\t\tnull, options, options[0]);\r\n\r\n\t\tif (n == 0) {\r\n\t\t\tobserver.runFunc();\r\n\t\t} else { \r\n\t\t\tSystem.exit(1);\r\n\t\t}\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ServerController/Server.java b/src/ServerController/Server.java
+--- a/src/ServerController/Server.java	(revision b232f0011b40320c791e034858484d897e508baf)
++++ b/src/ServerController/Server.java	(date 1695063103495)
+@@ -1,6 +1,6 @@
+ package ServerController;
+ /*
+-Code created by Josh Braza 
++Code created by Josh Braza
+ */
+ import java.awt.Color;
+ 
+@@ -32,7 +32,7 @@
+ 		mode = requestMode();
+ 		startGame();
+ 	}
+-	
++
+ 	public void startGame() {
+ 		game = new Game(mode);
+ 		playedCards = new Stack<UNOCard>();
+@@ -40,10 +40,10 @@
+ 		// First Card
+ 		UNOCard firstCard = game.getCard();
+ 		while(firstCard.getValue().equals(W_COLORPICKER) ||
+-			  firstCard.getValue().equals(W_DRAW4PLUS)) {
++				firstCard.getValue().equals(W_DRAW4PLUS)) {
+ 			firstCard = game.getCard();
+ 		}
+-		
++
+ 		modifyFirstCard(firstCard);
+ 
+ 		playedCards.add(firstCard);
+@@ -68,7 +68,7 @@
+ 
+ 		return GAMEMODES[n];
+ 	}
+-	
++
+ 	//coustom settings for the first card
+ 	private void modifyFirstCard(UNOCard firstCard) {
+ 		firstCard.removeMouseListener(CARDLISTENER);
+@@ -81,13 +81,13 @@
+ 			}
+ 		}
+ 	}
+-	
++
+ 	//return Main Panel
+ 	public Session getSession() {
+ 		return this.session;
+ 	}
+-	
+-	
++
++
+ 	//request to play a card
+ 	public void playThisCard(UNOCard clickedCard) {
+ 
+@@ -102,14 +102,14 @@
+ 				boolean cardConfirmed = true;
+ 				// function cards ??
+ 				switch (clickedCard.getType()) {
+-				case ACTION:
+-					performAction(clickedCard);
+-					break;
+-				case WILD:
+-					cardConfirmed = performWild((WildCard) clickedCard);
+-					break;
+-				default:
+-					break;
++					case ACTION:
++						performAction(clickedCard);
++						break;
++					case WILD:
++						cardConfirmed = performWild((WildCard) clickedCard);
++						break;
++					default:
++						break;
+ 				}
+ 				if(cardConfirmed) {
+ 					playClickedCard(clickedCard);
+@@ -118,21 +118,21 @@
+ 				infoPanel.setError("invalid move");
+ 				infoPanel.repaint();
+ 			}
+-			
++
+ 		}
+-				
++
+ 		if(mode==vsPC && canPlay){
+ 			if(game.isPCsTurn()){
+ 				game.playPC(peekTopCard());
+ 			}
+ 		}
+ 	}
+-	
++
+ 	private void playClickedCard(UNOCard clickedCard) {
+ 		clickedCard.removeMouseListener(CARDLISTENER);
+ 		playedCards.add(clickedCard);
+ 		game.removePlayedCard(clickedCard);
+-	
++
+ 		game.switchTurn();
+ 		clickedCard.setShowValue(true);
+ 		session.updatePanel(clickedCard);
+@@ -148,7 +148,7 @@
+ 			gameOverNewSession();
+ 		}
+ 	}
+-	
++
+ 	//check player's turn
+ 	public boolean isHisTurn(UNOCard clickedCard) {
+ 
+@@ -183,51 +183,51 @@
+ 		// Draw2PLUS
+ 		if (actionCard.getValue().equals(DRAW2PLUS))
+ 			game.drawPlus(2);
+-			
++
+ 		game.switchTurn();
+ 	}
+ 
+-	private boolean performWild(WildCard functionCard) {		
++	private boolean performWild(WildCard functionCard) {
+ 
+-		if(mode==1 && game.isPCsTurn()){			
++		if(mode==1 && game.isPCsTurn()){
+ 			int random = new Random().nextInt() % 4;
+ 			functionCard.useWildColor(UNO_COLORS[Math.abs(random)]);
+ 		} else {
+-			
++
+ 			ArrayList<String> colors = new ArrayList<String>();
+ 			colors.add("RED");
+ 			colors.add("BLUE");
+ 			colors.add("GREEN");
+ 			colors.add("YELLOW");
+-			
++
+ 			String chosenColor = (String) JOptionPane.showInputDialog(null,
+ 					"Choose a color", "Wild Card Color",
+ 					JOptionPane.DEFAULT_OPTION, null, colors.toArray(), null);
+-			
++
+ 			if (chosenColor == null) {
+ 				return false;
+ 			}
+-			
++
+ 			functionCard.useWildColor(UNO_COLORS[colors.indexOf(chosenColor)]);
+-			
++
+ 		}
+-		
++
+ 		if (functionCard.getValue().equals(W_DRAW4PLUS)) {
+ 			game.drawPlus(4);
+ 			game.switchTurn();
+-		}			
+-		
++		}
++
+ 		return true;
+ 	}
+-	
++
+ 	public void requestCard() {
+ 		game.drawCard(peekTopCard());
+-		
++
+ 		if(mode==vsPC && canPlay){
+ 			if(game.isPCsTurn())
+ 				game.playPC(peekTopCard());
+ 		}
+-		
++
+ 		session.refreshPanel();
+ 	}
+ 
+@@ -238,15 +238,15 @@
+ 	public void submitSaidUNO() {
+ 		game.setSaidUNO();
+ 	}
+-	
++
+ 	public void setObserver(Observer newObserver) {
+ 		observer = newObserver;
+ 	}
+-	
++
+ 	public Observer observer() {
+ 		return observer;
+ 	}
+-	
++
+ 	public void gameOverNewSession() {
+ 
+ 		Object[] options = { "New round", "Cancel" };
+@@ -258,8 +258,8 @@
+ 
+ 		if (n == 0) {
+ 			observer.runFunc();
+-		} else { 
++		} else {
+ 			System.exit(1);
+ 		}
+ 	}
+-}
++}
+\ No newline at end of file
+Index: src/View/UNOCard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package View;\r\n/*\r\nCode created by Josh Braza \r\n*/\r\nimport java.awt.Color;\r\nimport java.awt.Dimension;\r\nimport java.awt.Font;\r\nimport java.awt.FontMetrics;\r\nimport java.awt.Graphics;\r\nimport java.awt.Graphics2D;\r\nimport java.awt.event.MouseAdapter;\r\nimport java.awt.event.MouseEvent;\r\nimport java.awt.geom.AffineTransform;\r\n\r\nimport javax.swing.BorderFactory;\r\nimport javax.swing.JPanel;\r\nimport javax.swing.border.Border;\r\n\r\nimport Interfaces.CardInterface;\r\nimport Interfaces.UNOConstants;\r\n\r\n@SuppressWarnings(\"serial\")\r\npublic abstract class UNOCard extends JPanel implements CardInterface, UNOConstants {\r\n\t\r\n\tprivate Color cardColor = null;\r\n\tprivate String value = null;\r\n\tprivate int type = 0;\r\n\tprivate boolean showValue = false;\r\n\t\r\n\tprivate Border defaultBorder = BorderFactory.createEtchedBorder(WHEN_FOCUSED, Color.white, Color.gray);\r\n\tprivate Border focusedBorder = BorderFactory.createEtchedBorder(WHEN_FOCUSED, Color.black, Color.gray);\r\n\t\r\n\tpublic UNOCard(){\r\n\t}\r\n\t\r\n\tpublic void setShowValue(boolean showValue) {\r\n\t\tthis.showValue = showValue;\r\n\t\tthis.repaint();\r\n\t}\r\n\t\r\n\tpublic UNOCard(Color cardColor, int cardType, String cardValue){\r\n\t\tthis.cardColor = cardColor;\r\n\t\tthis.type = cardType;\r\n\t\tthis.value = cardValue;\r\n\t\tthis.showValue = true;\r\n\t\t\r\n\t\tthis.setPreferredSize(CARDSIZE);\r\n\t\tthis.setBorder(defaultBorder);\r\n\t\t\r\n\t\tthis.addMouseListener(new MouseHandler());\r\n\t}\r\n\t\r\n\tprotected void paintComponent(Graphics g){\r\n\t\tsuper.paintComponent(g);\r\n\t\tGraphics2D g2 = (Graphics2D) g;\r\n\t\t\r\n\t\tif(showValue) {\r\n\t\t\tpaintCardFront(g2);\r\n\t\t} else {\r\n\t\t\tpaintCardBack(g2);\r\n\t\t}\t\r\n\t}\t\r\n\t\r\n\tprivate void paintCardFront(Graphics2D g) {\r\n\t\tint cardWidth = CARDSIZE.width;\r\n\t\tint cardHeight = CARDSIZE.height;\r\n\t\t\r\n\t\t//Paints the external border of the card\r\n\t\tg.setColor(Color.WHITE);\r\n\t\tg.fillRect(0, 0, cardWidth, cardHeight);\r\n\t\t\r\n\t\t//Paints the color of the card\r\n\t\tint margin = 5;\r\n\t\tg.setColor(cardColor);\r\n\t\tg.fillRect(margin, margin, cardWidth-2*margin, cardHeight-2*margin);\r\n\t\t\r\n\t\t//Paints the oval format in the center of the card\r\n\t\tg.setColor(Color.white);\r\n\t\tAffineTransform org = g.getTransform();\r\n\t\tg.rotate(45,cardWidth*3/4,cardHeight*3/4);\t\t\r\n\r\n\t\tg.fillOval(0,cardHeight*1/4,cardWidth*3/5, cardHeight);\r\n\t\tg.setTransform(org);\t\t\r\n\t\t\r\n\t\t//Value in the center\t\t\r\n\t\tFont defaultFont = new Font(\"Helvetica\", Font.BOLD, cardWidth/2+5);\t\t\r\n\t\tFontMetrics fm = this.getFontMetrics(defaultFont);\r\n\t\tint StringWidth = fm.stringWidth(value)/2;\r\n\t\tint FontHeight = defaultFont.getSize()*1/3;\r\n\t\t\r\n\t\tg.setColor(cardColor);\r\n\t\tg.setFont(defaultFont);\r\n\t\tg.drawString(value, cardWidth/2-StringWidth, cardHeight/2+FontHeight);\r\n\t\t\r\n\t\t//Value in the corner\r\n\t\tdefaultFont = new Font(\"Helvetica\", Font.ITALIC, cardWidth/5);\t\t\r\n\t\tfm = this.getFontMetrics(defaultFont);\r\n\t\tStringWidth = fm.stringWidth(value)/2;\r\n\t\tFontHeight = defaultFont.getSize()*1/3;\r\n\t\t\r\n\t\tg.setColor(Color.white);\r\n\t\tg.setFont(defaultFont);\r\n\t\tg.drawString(value, 2*margin,5*margin);\t\r\n\t}\r\n\t\r\n\tprivate void paintCardBack(Graphics2D g) {\r\n\t\t\r\n\t\tint cardWidth = CARDSIZE.width;\r\n\t\tint cardHeight = CARDSIZE.height;\r\n\t\t\r\n\t\t//Paints the external border of the card\r\n\t\tg.setColor(Color.WHITE);\r\n\t\tg.fillRect(0, 0, cardWidth, cardHeight);\r\n\t\t\r\n\t\t//Paints the color of the card\r\n\t\tint margin = 5;\r\n\t\tg.setColor(Color.BLACK);\r\n\t\tg.fillRect(margin, margin, cardWidth-2*margin, cardHeight-2*margin);\r\n\t\t\r\n\t\t//Paints the oval format in the center of the card\r\n\t\tg.setColor(Color.RED);\r\n\t\tAffineTransform org = g.getTransform();\r\n\t\tg.rotate(45,cardWidth*3/4,cardHeight*3/4);\t\t\r\n\r\n\t\tg.fillOval(0,cardHeight*1/4,cardWidth*3/5, cardHeight);\r\n\t\tg.setTransform(org);\t\t\r\n\t\t\r\n\t\t//Value in the center\t\t\r\n\t\tFont defaultFont = new Font(\"Helvetica\", Font.BOLD, cardWidth/3);\t\t\r\n\t\tFontMetrics fm = this.getFontMetrics(defaultFont);\r\n\t\tint StringWidth = fm.stringWidth(\"UNO\")/2;\r\n\t\tint FontHeight = defaultFont.getSize()*1/3;\r\n\t\t\r\n\t\tg.setColor(Color.YELLOW);\r\n\t\tg.setFont(defaultFont);\r\n\t\tg.drawString(\"UNO\", cardWidth/2-StringWidth, cardHeight/2+FontHeight);\r\n\t}\r\n\t/**\r\n\t * My Mouse Listener \r\n\t */\r\n\tclass MouseHandler extends MouseAdapter {\r\n\t\t\r\n\t\tpublic void mouseEntered(MouseEvent e){\r\n\t\t\tsetBorder(focusedBorder);\r\n\t\t}\r\n\t\t\r\n\t\tpublic void mouseExited(MouseEvent e){\r\n\t\t\tsetBorder(defaultBorder);\r\n\t\t}\r\n\t}\r\n\t\r\n\tpublic void setCardSize(Dimension newSize){\r\n\t\tthis.setPreferredSize(newSize);\r\n\t}\r\n\t\r\n\tpublic void setColor(Color newColor) {\r\n\t\tthis.cardColor = newColor;\r\n\t}\r\n\r\n\tpublic Color getColor() {\r\n\t\treturn cardColor;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void setValue(String newValue) {\r\n\t\tthis.value = newValue;\t\t\r\n\t}\r\n\r\n\t@Override\r\n\tpublic String getValue() {\r\n\t\treturn value;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic void setType(int newType) {\r\n\t\tthis.type = newType;\r\n\t}\r\n\r\n\t@Override\r\n\tpublic int getType() {\r\n\t\treturn type;\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/View/UNOCard.java b/src/View/UNOCard.java
+--- a/src/View/UNOCard.java	(revision b232f0011b40320c791e034858484d897e508baf)
++++ b/src/View/UNOCard.java	(date 1695056983408)
+@@ -17,10 +17,10 @@
+ import javax.swing.border.Border;
+ 
+ import Interfaces.CardInterface;
+-import Interfaces.UNOConstants;
++import Interfaces.UNOConstants_Original;
+ 
+ @SuppressWarnings("serial")
+-public abstract class UNOCard extends JPanel implements CardInterface, UNOConstants {
++public abstract class UNOCard extends JPanel implements CardInterface, UNOConstants_Original {
+ 	
+ 	private Color cardColor = null;
+ 	private String value = null;
+Index: src/GameModel/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GameModel;\r\n/*\r\nCode created by Josh Braza \r\n*/\r\n\r\nimport java.util.Stack;\r\n\r\nimport javax.swing.JOptionPane;\r\n\r\nimport CardModel.*;\r\nimport Interfaces.GameConstants;\r\nimport View.UNOCard;\r\n\r\npublic class Game implements GameConstants {\r\n\r\n\tprivate Player[] players;\r\n\tprivate boolean isOver;\r\n\tprivate int GAMEMODE;\r\n\t\r\n\tprivate PC pc;\r\n\tprivate Dealer dealer;\r\n\tprivate Stack<UNOCard> cardStack;\r\n\t\r\n\tpublic Game(int mode){\r\n\t\t\r\n\t\tGAMEMODE = mode;\r\n\t\t\r\n\t\t//Create players\r\n\t\tString name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog(\"Player 1\") : \"PC\";\t\r\n\t\tString name2 = JOptionPane.showInputDialog(\"Player 2\");\r\n\t\t\r\n\t\tif(GAMEMODE==vsPC)\r\n\t\t\tpc = new PC();\r\n\t\t\r\n\t\tPlayer player1 = (GAMEMODE==vsPC) ? pc : new Player(name);\r\n\t\tPlayer player2 = new Player(name2);\t\t\r\n\t\tplayer2.toggleTurn();\t\t\t\t//Initially, player2's turn\t\t\r\n\t\t\t\r\n\t\tplayers = new Player[]{player1, player2};\t\t\t\r\n\t\t\r\n\t\t//Create Dealer\r\n\t\tdealer = new Dealer();\r\n\t\tcardStack = dealer.shuffle();\r\n\t\tdealer.spreadOut(players);\r\n\t\t\r\n\t\tisOver = false;\r\n\t}\r\n\r\n\tpublic Player[] getPlayers() {\r\n\t\treturn players;\r\n\t}\r\n\r\n\tpublic UNOCard getCard() {\r\n\t\treturn dealer.getCard();\r\n\t}\r\n\t\r\n\tpublic void removePlayedCard(UNOCard playedCard) {\r\n\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (p.hasCard(playedCard)){\r\n\t\t\t\tp.removeCard(playedCard);\r\n\t\t\t\t\r\n\t\t\t\tif (p.getTotalCards() == 1 && !p.getSaidUNO()) {\r\n\t\t\t\t\tinfoPanel.setError(p.getName() + \" Forgot to say UNO\");\r\n\t\t\t\t\tp.obtainCard(getCard());\r\n\t\t\t\t\tp.obtainCard(getCard());\r\n\t\t\t\t}else if(p.getTotalCards()>2){\r\n\t\t\t\t\tp.setSaidUNOFalse();\r\n\t\t\t\t}\r\n\t\t\t}\t\t\t\r\n\t\t}\r\n\t}\r\n\t\r\n\t//give player a card\r\n\tpublic void drawCard(UNOCard topCard) {\r\n\r\n\t\tboolean canPlay = false;\r\n\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (p.isMyTurn()) {\r\n\t\t\t\tUNOCard newCard = getCard();\r\n\t\t\t\tp.obtainCard(newCard);\r\n\t\t\t\tcanPlay = canPlay(topCard, newCard);\r\n\t\t\t\t\r\n\t\t\t\tif(pc.isMyTurn() && canPlay){\r\n\t\t\t\t\tplayPC(topCard);\r\n\t\t\t\t\tcanPlay = true;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\tif (!canPlay)\r\n\t\t\tswitchTurn();\r\n\t}\r\n\r\n\tpublic void switchTurn() {\r\n\t\tfor (Player p : players) {\r\n\t\t\tp.toggleTurn();\r\n\t\t}\r\n\t\twhoseTurn();\r\n\t}\r\n\t\r\n\t//Draw cards x times\r\n\tpublic void drawPlus(int times) {\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (!p.isMyTurn()) {\r\n\t\t\t\tfor (int i = 1; i <= times; i++)\r\n\t\t\t\t\tp.obtainCard(getCard());\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\t//response whose turn it is\r\n\tpublic void whoseTurn() {\r\n\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (p.isMyTurn()){\r\n\t\t\t\tinfoPanel.updateText(p.getName() + \"'s Turn\");\r\n\t\t\t\tSystem.out.println(p.getName() + \"'s Turn\");\r\n\t\t\t}\r\n\t\t}\r\n\t\tinfoPanel.setDetail(playedCardsSize(), remainingCards());\r\n\t\tinfoPanel.repaint();\r\n\t}\r\n\t\r\n\t//return if the game is over\r\n\tpublic boolean isOver() {\r\n\t\t\r\n\t\tif(cardStack.isEmpty()){\r\n\t\t\tisOver= true;\r\n\t\t\treturn isOver;\r\n\t\t}\r\n\t\t\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (!p.hasCards()) {\r\n\t\t\t\tisOver = true;\r\n\t\t\t\tbreak;\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\treturn isOver;\r\n\t}\r\n\r\n\tpublic int remainingCards() {\r\n\t\treturn cardStack.size();\r\n\t}\r\n\r\n\tpublic int[] playedCardsSize() {\r\n\t\tint[] nr = new int[2];\r\n\t\tint i = 0;\r\n\t\tfor (Player p : players) {\r\n\t\t\tnr[i] = p.totalPlayedCards();\r\n\t\t\ti++;\r\n\t\t}\r\n\t\treturn nr;\r\n\t}\r\n\r\n\t//Check if this card can be played\r\n\tprivate boolean canPlay(UNOCard topCard, UNOCard newCard) {\r\n\r\n\t\t// Color or value matches\r\n\t\tif (topCard.getColor().equals(newCard.getColor())\r\n\t\t\t\t|| topCard.getValue().equals(newCard.getValue()))\r\n\t\t\treturn true;\r\n\t\t// if chosen wild card color matches\r\n\t\telse if (topCard.getType() == WILD)\r\n\t\t\treturn ((WildCard) topCard).getWildColor().equals(newCard.getColor());\r\n\r\n\t\t// suppose the new card is a wild card\r\n\t\telse if (newCard.getType() == WILD)\r\n\t\t\treturn true;\r\n\r\n\t\t// else\r\n\t\treturn false;\r\n\t}\r\n\r\n\t//Check whether the player said or forgot to say UNO\r\n\tpublic void checkUNO() {\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (p.isMyTurn()) {\r\n\t\t\t\tif (p.getTotalCards() == 1 && !p.getSaidUNO()) {\r\n\t\t\t\t\tinfoPanel.setError(p.getName() + \" Forgot to say UNO\");\r\n\t\t\t\t\tp.obtainCard(getCard());\r\n\t\t\t\t\tp.obtainCard(getCard());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\t\t\r\n\t}\r\n\r\n\tpublic void setSaidUNO() {\r\n\t\tfor (Player p : players) {\r\n\t\t\tif (p.isMyTurn()) {\r\n\t\t\t\tif (p.getTotalCards() == 2) {\r\n\t\t\t\t\tp.saysUNO();\r\n\t\t\t\t\tinfoPanel.setError(p.getName() + \" said UNO\");\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t\r\n\tpublic boolean isPCsTurn(){\r\n\t\tif(pc.isMyTurn()){\r\n\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t//if it's PC's turn, play it for pc\r\n\tpublic void playPC(UNOCard topCard) {\t\t\r\n\t\t\r\n\t\tif (pc.isMyTurn()) {\r\n\t\t\tboolean done = pc.play(topCard);\r\n\t\t\t\r\n\t\t\tif(!done)\r\n\t\t\t\tdrawCard(topCard);\r\n\t\t}\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GameModel/Game.java b/src/GameModel/Game.java
+--- a/src/GameModel/Game.java	(revision b232f0011b40320c791e034858484d897e508baf)
++++ b/src/GameModel/Game.java	(date 1695063164311)
+@@ -1,6 +1,6 @@
+ package GameModel;
+ /*
+-Code created by Josh Braza 
++Code created by Josh Braza
+ */
+ 
+ import java.util.Stack;
+@@ -8,41 +8,47 @@
+ import javax.swing.JOptionPane;
+ 
+ import CardModel.*;
++import Interfaces.ColorSelectionWindow;
+ import Interfaces.GameConstants;
+ import View.UNOCard;
+ 
++//import static Interfaces.UNOConstants.WILD;
++
+ public class Game implements GameConstants {
+ 
+ 	private Player[] players;
+ 	private boolean isOver;
+ 	private int GAMEMODE;
+-	
++
+ 	private PC pc;
+ 	private Dealer dealer;
+ 	private Stack<UNOCard> cardStack;
+-	
++
+ 	public Game(int mode){
+-		
++
+ 		GAMEMODE = mode;
+-		
++
+ 		//Create players
+-		String name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog("Player 1") : "PC";	
++		String name = (GAMEMODE==MANUAL) ? JOptionPane.showInputDialog("Player 1") : "PC";
+ 		String name2 = JOptionPane.showInputDialog("Player 2");
+-		
++
++//		ColorSelectionWindow colorSelection = new ColorSelectionWindow();
++//		String selectedPalette = colorSelection.getSelectedPalette();
++
+ 		if(GAMEMODE==vsPC)
+ 			pc = new PC();
+-		
++
+ 		Player player1 = (GAMEMODE==vsPC) ? pc : new Player(name);
+-		Player player2 = new Player(name2);		
+-		player2.toggleTurn();				//Initially, player2's turn		
+-			
+-		players = new Player[]{player1, player2};			
+-		
++		Player player2 = new Player(name2);
++		player2.toggleTurn();				//Initially, player2's turn
++
++		players = new Player[]{player1, player2};
++
+ 		//Create Dealer
+ 		dealer = new Dealer();
+ 		cardStack = dealer.shuffle();
+ 		dealer.spreadOut(players);
+-		
++
+ 		isOver = false;
+ 	}
+ 
+@@ -53,13 +59,13 @@
+ 	public UNOCard getCard() {
+ 		return dealer.getCard();
+ 	}
+-	
++
+ 	public void removePlayedCard(UNOCard playedCard) {
+ 
+ 		for (Player p : players) {
+ 			if (p.hasCard(playedCard)){
+ 				p.removeCard(playedCard);
+-				
++
+ 				if (p.getTotalCards() == 1 && !p.getSaidUNO()) {
+ 					infoPanel.setError(p.getName() + " Forgot to say UNO");
+ 					p.obtainCard(getCard());
+@@ -67,10 +73,10 @@
+ 				}else if(p.getTotalCards()>2){
+ 					p.setSaidUNOFalse();
+ 				}
+-			}			
++			}
+ 		}
+ 	}
+-	
++
+ 	//give player a card
+ 	public void drawCard(UNOCard topCard) {
+ 
+@@ -81,14 +87,14 @@
+ 				UNOCard newCard = getCard();
+ 				p.obtainCard(newCard);
+ 				canPlay = canPlay(topCard, newCard);
+-				
++
+ 				if(pc.isMyTurn() && canPlay){
+ 					playPC(topCard);
+ 					canPlay = true;
+ 				}
+ 			}
+ 		}
+-		
++
+ 		if (!canPlay)
+ 			switchTurn();
+ 	}
+@@ -99,7 +105,7 @@
+ 		}
+ 		whoseTurn();
+ 	}
+-	
++
+ 	//Draw cards x times
+ 	public void drawPlus(int times) {
+ 		for (Player p : players) {
+@@ -109,7 +115,7 @@
+ 			}
+ 		}
+ 	}
+-	
++
+ 	//response whose turn it is
+ 	public void whoseTurn() {
+ 
+@@ -122,22 +128,22 @@
+ 		infoPanel.setDetail(playedCardsSize(), remainingCards());
+ 		infoPanel.repaint();
+ 	}
+-	
++
+ 	//return if the game is over
+ 	public boolean isOver() {
+-		
++
+ 		if(cardStack.isEmpty()){
+ 			isOver= true;
+ 			return isOver;
+ 		}
+-		
++
+ 		for (Player p : players) {
+ 			if (!p.hasCards()) {
+ 				isOver = true;
+ 				break;
+ 			}
+ 		}
+-		
++
+ 		return isOver;
+ 	}
+ 
+@@ -162,11 +168,11 @@
+ 		if (topCard.getColor().equals(newCard.getColor())
+ 				|| topCard.getValue().equals(newCard.getValue()))
+ 			return true;
+-		// if chosen wild card color matches
++			// if chosen wild card color matches
+ 		else if (topCard.getType() == WILD)
+ 			return ((WildCard) topCard).getWildColor().equals(newCard.getColor());
+ 
+-		// suppose the new card is a wild card
++			// suppose the new card is a wild card
+ 		else if (newCard.getType() == WILD)
+ 			return true;
+ 
+@@ -184,7 +190,7 @@
+ 					p.obtainCard(getCard());
+ 				}
+ 			}
+-		}		
++		}
+ 	}
+ 
+ 	public void setSaidUNO() {
+@@ -197,7 +203,7 @@
+ 			}
+ 		}
+ 	}
+-	
++
+ 	public boolean isPCsTurn(){
+ 		if(pc.isMyTurn()){
+ 			return true;
+@@ -206,13 +212,13 @@
+ 	}
+ 
+ 	//if it's PC's turn, play it for pc
+-	public void playPC(UNOCard topCard) {		
+-		
++	public void playPC(UNOCard topCard) {
++
+ 		if (pc.isMyTurn()) {
+ 			boolean done = pc.play(topCard);
+-			
++
+ 			if(!done)
+ 				drawCard(topCard);
+ 		}
+ 	}
+-}
++}
+\ No newline at end of file

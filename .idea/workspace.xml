@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8638c9b5-97c1-4a38-98e8-3d610ac23549" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/ColorSelectionWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/UNOConstants_Original.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameModel/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameModel/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/GameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/UNOConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/UNOConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerController/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerController/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/UNOCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/UNOCard.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e334049d-c993-4d4c-8f11-ef777edb357b" />
+        <option name="url" value="https://github.com/Jeferson-Scarsi/uno-ms28s.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2VPqlr9FlA2aZ0oE3BLcfrSboQr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.obiscr.chatgpt.settings.ChatGPT",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Interfaces" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Interfaces" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8638c9b5-97c1-4a38-98e8-3d610ac23549" name="Changes" comment="" />
+      <created>1694748217708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694748217708</updated>
+      <workItem from="1694748219842" duration="401000" />
+      <workItem from="1694748636367" duration="587000" />
+      <workItem from="1694814361960" duration="3073000" />
+      <workItem from="1694914435050" duration="2194000" />
+      <workItem from="1694970747815" duration="1895000" />
+      <workItem from="1695004981794" duration="7778000" />
+      <workItem from="1695054539314" duration="13927000" />
+      <workItem from="1695070212534" duration="104000" />
+      <workItem from="1695075816907" duration="5331000" />
+      <workItem from="1702005058338" duration="605000" />
+      <workItem from="1702005676038" duration="231000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ServerController/Server.java</url>
+          <line>191</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ServerController/Server.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ServerController/MyCardListener.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
