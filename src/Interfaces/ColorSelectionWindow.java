@@ -16,28 +16,21 @@ public class ColorSelectionWindow {
         switch (choice) {
             case 0: // Padrão
                 selectedPalette = "Padrao";
-                unoConstants.setColors(selectedPalette); // Define as cores para a paleta selecionada
                 break;
             case 1: // Acromatopsia
                 selectedPalette = "Acromatopsia";
-                // Defina as cores para Acromatopsia aqui
                 break;
             case 2: // Tritanomalia
                 selectedPalette = "Tritanomalia";
-                // Defina as cores para Tritanomalia aqui
-                unoConstants.setColors(selectedPalette);
                 break;
             case 3: // Deuteromalia
                 selectedPalette = "Deuteromalia";
-                // Defina as cores para Deuteromalia aqui
                 break;
             case 4: // Protanomalia
                 selectedPalette = "Protanomalia";
-                // Defina as cores para Protanomalia aqui
                 break;
             default: // Padrão (caso o jogador cancele a seleção)
                 selectedPalette = "Padrão";
-                // Defina as cores para o padrão aqui, se necessário
                 break;
         }
     }

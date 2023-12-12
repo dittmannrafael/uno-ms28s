@@ -1,67 +1,17 @@
+
 package Interfaces;
 
 import java.awt.Color;
-/*
-Code created by Josh Braza
-*/
+
 public class UNOConstants {
-    //Colors
-    public Color RED /*= new Color(192, 80, 77)*/;
-    public Color BLUE /*= new Color(31, 73, 125)*/;
-    public Color GREEN /*= new Color(0, 153, 0)*/;
-    public Color YELLOW /*= new Color(255, 204, 0)*/;
+    private Color RED = new Color(192, 80, 77);
+    private Color BLUE = new Color(31, 73, 125);
+    private Color GREEN = new Color(0, 153, 0);
+    private Color YELLOW = new Color(255, 204, 0);
+
     public UNOConstants() {
-
     }
 
-    // Método para definir as cores com base na paleta selecionada
-    public void setColors(String palette) {
-        switch (palette) {
-            case "Padrao":
-                RED = new Color(192, 80, 77);
-                BLUE = new Color(31, 73, 125);
-                GREEN = new Color(0, 153, 0);
-                YELLOW = new Color(255, 204, 0);
-                break;
-            case "Acromatopsia":
-                // Defina as cores para Acromatopsia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
-                break;
-            case "Tritanomalia":
-                // Defina as cores para Tritanomalia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
-                break;
-            case "Deuteromalia":
-                // Defina as cores para Deuteromalia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
-                break;
-            case "Protanomalia":
-                // Defina as cores para Protanomalia aqui
-                RED = new Color(255, 25, 94);
-                BLUE = new Color(0, 101, 146);
-                GREEN = new Color(44, 204, 235);
-                YELLOW = new Color(255, 233, 240);
-                break;
-            default:
-                // Defina um valor padrão aqui, se necessário
-                RED = new Color(192, 80, 77);
-                BLUE = new Color(31, 73, 125);
-                GREEN = new Color(0, 153, 0);
-                YELLOW = new Color(255, 204, 0);
-                break;
-        }
-    }
-
-    // Getters para as cores
     public Color getRED(String palette) {
         switch (palette) {
             case "Padrao":
